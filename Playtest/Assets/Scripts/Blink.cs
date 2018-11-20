@@ -24,12 +24,12 @@ public class Blink : MonoBehaviour {
         if (test)
         {
             white.color = tmp;
-            tmp.a = 0.75f;
+            tmp.a = 0.0f;
         }
         else
         {
             white.color = tmp;
-            tmp.a = 0.0f;
+            tmp.a = 0.9f;
         }
 	}
 }
