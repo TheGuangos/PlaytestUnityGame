@@ -1,6 +1,6 @@
 # PlaytestUnityGame
 
-This is a small project made by Unity to test user experience.
+This is a small project made with Unity to test user experience.
 
 ## Repository Link
 
@@ -15,3 +15,7 @@ https://github.com/TheGuangos/PlaytestUnityGame
 [Marc Doctor Pedrosa](https://github.com/thedoctormarc)
 
 [Christian Martínez de la Rosa](https://github.com/christt105)
+
+## Programs used
+
+Made with [Unity](https://unity3d.com)
