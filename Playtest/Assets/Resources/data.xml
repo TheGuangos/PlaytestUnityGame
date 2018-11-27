@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<scenes>
+  <scene name="Opening">
+    <options>
+      <option>{1} Go to town center.</option>
+      <option>{2} Go to door.</option>
+      <option>{3} Leave town.</option>
+      <option>{4} Go back to sleep.</option>
+    </options>
+  </scene>
+</scenes>
