@@ -9,7 +9,7 @@ public class Blink : MonoBehaviour {
     Color tmp;
     // Use this for initialization
 	void Start () {
-        white = GetComponentInChildren<SpriteRenderer>();
+        white = GetComponent<SpriteRenderer>();
         test = false;
         tmp = white.color;
 	}
