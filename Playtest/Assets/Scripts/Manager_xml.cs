@@ -5,19 +5,19 @@ using UnityEngine.UI;
 using System.Xml;
 public class Manager_xml : MonoBehaviour
 {
-    public GameObject textScene;
-    public GameObject textOption1;
-    public GameObject textOption2;
-    public GameObject textOption3;
-    public GameObject textOption4;
+    public GameObject txtScene;
+    public GameObject txtOption1;
+    public GameObject txtOption2;
+    public GameObject txtOption3;
+    public GameObject txtOption4;
 
     GameObject[] textOptions;
 
-    private static Dictionary<string, List<string>> optionsByScene;
+    private static Dictionary<string, List<string>> optionsByScenes;
 
-	void Start ()
+    void Start ()
     {
-        textOptions = new GameObject[] { textOption1, textOption2, textOption3, textOption4 };
+        textOptions = new GameObject[] { txtOption1, txtOption2, txtOption3, txtOption4 };
 
         LoadSceneData();
         PopulateText();
@@ -25,13 +25,13 @@ public class Manager_xml : MonoBehaviour
 
     private void LoadSceneData()
     {
-        optionsByScene = new Dictionary<string, List<string>>();
+        optionsByScenes = new Dictionary<string, List<string>>();
 
         TextAsset xmlData = (TextAsset)Resources.Load("data");
         XmlDocument xmlDocument = new XmlDocument();
         xmlDocument.LoadXml(xmlData.text);
 
-        foreach (XmlNode scene in xmlDocument["scene"].ChildNodes)
+        foreach (XmlNode scene in xmlDocument["scenes"].ChildNodes)
         {
             string sceneName = scene.Attributes["name"].Value;
 
@@ -40,15 +40,15 @@ public class Manager_xml : MonoBehaviour
             {
                 options.Add(option.InnerText);
             }
-            optionsByScene[sceneName] = options;
+            optionsByScenes[sceneName] = options;
         }
     }
 	
     private void PopulateText()
     {
-        foreach (KeyValuePair<string, List<string>> optionsByScene in optionsByScene)
+        foreach (KeyValuePair<string, List<string>> optionsByScene in optionsByScenes)
         {
-            textScene.GetComponent<Text>().text =  optionsByScene.Key;
+            txtScene.GetComponent<Text>().text = optionsByScene.Key;
 
             for (int i = 0; i<textOptions.Length; i++)
             {

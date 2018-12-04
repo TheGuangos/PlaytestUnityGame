@@ -374,11 +374,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e73deb7ac7275304d8e9012f9d41f1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textScene: {fileID: 0}
-  textOption1: {fileID: 0}
-  textOption2: {fileID: 0}
-  textOption3: {fileID: 0}
-  textOption4: {fileID: 0}
+  txtScene: {fileID: 1897435181}
+  txtOption1: {fileID: 1875268275}
+  txtOption2: {fileID: 684619903}
+  txtOption3: {fileID: 18642777}
+  txtOption4: {fileID: 1157318505}
 --- !u!4 &333219818
 Transform:
   m_ObjectHideFlags: 0
