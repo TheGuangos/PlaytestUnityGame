@@ -13,6 +13,9 @@ public class UI_Manager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if ()
+        {
+            score++; 
+        }
 	}
 }
