@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Quad : MonoBehaviour {
 
-    enum State
+    public enum State
     {
         NOFADE,
         FADETOINV,
@@ -12,11 +12,12 @@ public class Quad : MonoBehaviour {
         FADETOVIS
     }
 
-    State state = State.NOFADE;
+    public State state = State.NOFADE;
+    public SpriteRenderer sprite;
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
@@ -24,7 +25,7 @@ public class Quad : MonoBehaviour {
         switch (state)
         {
             case State.NOFADE:
-                state = State.FADETOINV;
+                //state = State.FADETOINV;
                 break;
             case State.IDLE:
                 break;
