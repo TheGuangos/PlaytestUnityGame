@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 
 <scenes>
-  <scene name="Opening">
-    <options>
-      <option>{1} Go to town center.</option>
-      <option>{2} Go to door.</option>
-      <option>{3} Leave town.</option>
-      <option>{4} Go back to sleep.</option>
-    </options>
-  </scene>
-</scenes>
+    <scene name="Bailongos Color 3000 - Torpedo Edition">
+      <options>
+        <option>Number of clicks:</option>
+        <option>Number of successes:</option>
+        <option>Number of failures:</option>
+        <option>Times played:</option>
+      </options>
+    </scene>
+  </scenes>
