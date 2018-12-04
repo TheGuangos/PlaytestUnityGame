@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UI_Manager : MonoBehaviour {
 
+    uint score; 
+
 	// Use this for initialization
 	void Start () {
 		
@@ -11,6 +13,9 @@ public class UI_Manager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        //if ()
+        //{
+        //    score++; 
+        //}
 	}
 }
