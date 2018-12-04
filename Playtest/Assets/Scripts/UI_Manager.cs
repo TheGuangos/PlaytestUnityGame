@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UI_Manager : MonoBehaviour {
 
+    uint score; 
+
 	// Use this for initialization
 	void Start () {
 		
