@@ -9,11 +9,19 @@ public class QuadManager : MonoBehaviour {
     public Quad red;
     public Quad green;
     public Quad yellow;
+<<<<<<< HEAD
     
     public SpriteRenderer red_s;
     public SpriteRenderer yellow_s;
     public SpriteRenderer green_s;
     public SpriteRenderer blue_s;
+=======
+
+    int[] list = new int[15];
+    int iterator = 0;
+    bool go = false;
+    bool blinking = false;
+>>>>>>> d2595150837698a3fe9e69cb61ce1ecade09965b
 
     public Text counterText;
     public int counter_clicks;
@@ -24,25 +32,107 @@ public class QuadManager : MonoBehaviour {
     void Start () {
 
         blue.state = Quad.State.NOFADE;
-        blue.sprite = blue_s;
 
         red.state = Quad.State.NOFADE;
-        red.sprite = red_s;
         
         yellow.state = Quad.State.NOFADE;
-        yellow.sprite = yellow_s;
 
         green.state = Quad.State.NOFADE;
-        green.sprite = green_s;
 
         timer = Time.realtimeSinceStartup;
+<<<<<<< HEAD
         SetText();
         counter_clicks = 0;
+=======
+        iterator = 0;
+        go = false;
+
+        for(int i = 0; i < 15; ++i)
+        {
+            list[i] = Random.Range(0, 4);
+        }
+>>>>>>> d2595150837698a3fe9e69cb61ce1ecade09965b
     }
 	
 	// Update is called once per frame
 	void Update () {
+<<<<<<< HEAD
         if (Input.GetKeyDown(KeyCode.UpArrow))
+=======
+
+        if (!go && Time.realtimeSinceStartup - timer > 5.0f)
+        {
+            go = true;
+            timer = Time.realtimeSinceStartup;
+        }
+
+        if (go && !blinking)
+        {
+            switch (list[iterator])
+            {
+                case 0:                     //blue
+                    blue.state = Quad.State.FADETOVIS;
+                    blinking = true;
+                    iterator++;
+                    break;
+                case 1:                     //red
+                    red.state = Quad.State.FADETOVIS;
+                    blinking = true;
+                    iterator++;
+                    break;
+                case 2:                     //yellow
+                    yellow.state = Quad.State.FADETOVIS;
+                    blinking = true;
+                    iterator++;
+                    break;
+                case 3:                     //green
+                    green.state = Quad.State.FADETOVIS;
+                    blinking = true;
+                    iterator++;
+                    break;
+                default:
+                    print("oh oh");
+                    break;
+            }
+        }
+
+        if (blinking)
+        {
+            if (blue.state == Quad.State.COMPLETED)
+            {
+                blinking = false;
+            }
+            if (red.state == Quad.State.COMPLETED)
+            {
+                blinking = false;
+            }
+            if (green.state == Quad.State.COMPLETED)
+            {
+                blinking = false;
+            }
+            if (yellow.state == Quad.State.COMPLETED)
+            {
+                blinking = false;
+            }
+        }
+
+        if (iterator >= 15)
+        {
+            
+            print("Se acabo el juego pisha");
+            iterator = 0;
+            for (int i = 0; i < 15; ++i)
+            {
+                list[i] = Random.Range(0, 4);
+            }
+        }
+
+
+
+
+
+        /*if (Input.GetKeyDown(KeyCode.UpArrow))
+>>>>>>> d2595150837698a3fe9e69cb61ce1ecade09965b
         {
             if (red.sprite.enabled)
                 red.sprite.enabled = false;
@@ -83,8 +173,12 @@ public class QuadManager : MonoBehaviour {
         else if (Input.GetKeyUp(KeyCode.LeftArrow))
         {
             blue.sprite.enabled = true;
+<<<<<<< HEAD
         }
     }
+=======
+        }*/
+>>>>>>> d2595150837698a3fe9e69cb61ce1ecade09965b
 
     void SetText()
     {
