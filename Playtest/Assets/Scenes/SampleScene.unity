@@ -253,11 +253,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 648772859}
   m_Script: {fileID: 11500000, guid: 166494d3f77977d4fb1d61bdafb44cf0, type: 3}
---- !u!212 &186708518 stripped
-SpriteRenderer:
-  m_PrefabParentObject: {fileID: 212686249968007070, guid: 84d1e63425dff1449a809223029d6212,
-    type: 2}
-  m_PrefabInternal: {fileID: 648772859}
 --- !u!4 &261684694 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4432398987530162, guid: 84d1e63425dff1449a809223029d6212,
@@ -269,11 +264,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1840063024}
   m_Script: {fileID: 11500000, guid: 166494d3f77977d4fb1d61bdafb44cf0, type: 3}
---- !u!212 &261684696 stripped
-SpriteRenderer:
-  m_PrefabParentObject: {fileID: 212686249968007070, guid: 84d1e63425dff1449a809223029d6212,
-    type: 2}
-  m_PrefabInternal: {fileID: 1840063024}
 --- !u!1 &285919413
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,10 +425,6 @@ MonoBehaviour:
   red: {fileID: 0}
   green: {fileID: 0}
   yellow: {fileID: 0}
-  red_s: {fileID: 0}
-  yellow_s: {fileID: 0}
-  green_s: {fileID: 0}
-  blue_s: {fileID: 0}
   counterText: {fileID: 0}
   counter_clicks: 0
   interval_blink: 0.5
@@ -473,11 +459,7 @@ MonoBehaviour:
   red: {fileID: 186708517}
   green: {fileID: 261684695}
   yellow: {fileID: 1989219504}
-  red_s: {fileID: 186708518}
-  yellow_s: {fileID: 1989219505}
-  green_s: {fileID: 261684696}
-  blue_s: {fileID: 878633015}
-  counterText: {fileID: 0}
+  counterText: {fileID: 930125943}
   counter_clicks: 0
   interval_blink: 0.5
 --- !u!4 &395496362
@@ -789,11 +771,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 137783651}
   m_Script: {fileID: 11500000, guid: 166494d3f77977d4fb1d61bdafb44cf0, type: 3}
---- !u!212 &878633015 stripped
-SpriteRenderer:
-  m_PrefabParentObject: {fileID: 212686249968007070, guid: 84d1e63425dff1449a809223029d6212,
-    type: 2}
-  m_PrefabInternal: {fileID: 137783651}
 --- !u!1 &930125941
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,10 +861,6 @@ MonoBehaviour:
   red: {fileID: 0}
   green: {fileID: 0}
   yellow: {fileID: 0}
-  red_s: {fileID: 0}
-  yellow_s: {fileID: 0}
-  green_s: {fileID: 0}
-  blue_s: {fileID: 0}
   counterText: {fileID: 0}
   counter_clicks: 0
   interval_blink: 0.5
@@ -1444,11 +1417,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1752356206}
   m_Script: {fileID: 11500000, guid: 166494d3f77977d4fb1d61bdafb44cf0, type: 3}
---- !u!212 &1989219505 stripped
-SpriteRenderer:
-  m_PrefabParentObject: {fileID: 212686249968007070, guid: 84d1e63425dff1449a809223029d6212,
-    type: 2}
-  m_PrefabInternal: {fileID: 1752356206}
 --- !u!1 &2063376580
 GameObject:
   m_ObjectHideFlags: 0
