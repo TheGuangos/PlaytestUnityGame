@@ -34,8 +34,6 @@ public class QuadManager : MonoBehaviour {
 
         for(int i = 0; i < 15; ++i)
         {
-            if (i == 0)
-                list[i] = 0;
             list[i] = Random.Range(0, 4);
         }
     }
@@ -56,18 +54,22 @@ public class QuadManager : MonoBehaviour {
                 case 0:                     //blue
                     blue.state = Quad.State.FADETOVIS;
                     blinking = true;
+                    iterator++;
                     break;
                 case 1:                     //red
                     red.state = Quad.State.FADETOVIS;
                     blinking = true;
+                    iterator++;
                     break;
                 case 2:                     //yellow
                     yellow.state = Quad.State.FADETOVIS;
                     blinking = true;
+                    iterator++;
                     break;
                 case 3:                     //green
                     green.state = Quad.State.FADETOVIS;
                     blinking = true;
+                    iterator++;
                     break;
                 default:
                     print("oh oh");
@@ -75,21 +77,35 @@ public class QuadManager : MonoBehaviour {
             }
         }
 
-        if(blue.state == Quad.State.FADETOINV)
+        if (blinking)
         {
-            blinking = false;
+            if (blue.state == Quad.State.COMPLETED)
+            {
+                blinking = false;
+            }
+            if (red.state == Quad.State.COMPLETED)
+            {
+                blinking = false;
+            }
+            if (green.state == Quad.State.COMPLETED)
+            {
+                blinking = false;
+            }
+            if (yellow.state == Quad.State.COMPLETED)
+            {
+                blinking = false;
+            }
         }
-        if (red.state == Quad.State.FADETOINV)
+
+        if (iterator >= 15)
         {
-            blinking = false;
-        }
-        if (green.state == Quad.State.FADETOINV)
-        {
-            blinking = false;
-        }
-        if (yellow.state == Quad.State.FADETOINV)
-        {
-            blinking = false;
+            
+            print("Se acabo el juego pisha");
+            iterator = 0;
+            for (int i = 0; i < 15; ++i)
+            {
+                list[i] = Random.Range(0, 4);
+            }
         }
 
 
