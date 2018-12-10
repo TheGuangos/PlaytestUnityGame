@@ -9,10 +9,10 @@ public class QuadManager : MonoBehaviour {
     public Quad green;
     public Quad yellow;
 
-    public SpriteRenderer red_s;
-    public SpriteRenderer yellow_s;
-    public SpriteRenderer green_s;
-    public SpriteRenderer blue_s;
+    int[] list = new int[15];
+    int iterator = 0;
+    bool go = false;
+    bool blinking = false;
 
     float timer;
     public float interval_blink = 0.5F;
@@ -21,24 +21,82 @@ public class QuadManager : MonoBehaviour {
     void Start () {
 
         blue.state = Quad.State.NOFADE;
-        blue.sprite = blue_s;
 
         red.state = Quad.State.NOFADE;
-        red.sprite = red_s;
         
         yellow.state = Quad.State.NOFADE;
-        yellow.sprite = yellow_s;
 
         green.state = Quad.State.NOFADE;
-        green.sprite = green_s;
 
         timer = Time.realtimeSinceStartup;
+        iterator = 0;
+        go = false;
+
+        for(int i = 0; i < 15; ++i)
+        {
+            if (i == 0)
+                list[i] = 0;
+            list[i] = Random.Range(0, 4);
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (!go && Time.realtimeSinceStartup - timer > 5.0f)
+        {
+            go = true;
+            timer = Time.realtimeSinceStartup;
+        }
+
+        if (go && !blinking)
+        {
+            switch (list[iterator])
+            {
+                case 0:                     //blue
+                    blue.state = Quad.State.FADETOVIS;
+                    blinking = true;
+                    break;
+                case 1:                     //red
+                    red.state = Quad.State.FADETOVIS;
+                    blinking = true;
+                    break;
+                case 2:                     //yellow
+                    yellow.state = Quad.State.FADETOVIS;
+                    blinking = true;
+                    break;
+                case 3:                     //green
+                    green.state = Quad.State.FADETOVIS;
+                    blinking = true;
+                    break;
+                default:
+                    print("oh oh");
+                    break;
+            }
+        }
+
+        if(blue.state == Quad.State.FADETOINV)
+        {
+            blinking = false;
+        }
+        if (red.state == Quad.State.FADETOINV)
+        {
+            blinking = false;
+        }
+        if (green.state == Quad.State.FADETOINV)
+        {
+            blinking = false;
+        }
+        if (yellow.state == Quad.State.FADETOINV)
+        {
+            blinking = false;
+        }
+
+
+
+
+
+        /*if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (red.sprite.enabled)
                 red.sprite.enabled = false;
@@ -76,7 +134,7 @@ public class QuadManager : MonoBehaviour {
         else if (Input.GetKeyUp(KeyCode.LeftArrow))
         {
             blue.sprite.enabled = true;
-        }
+        }*/
 
     }
 }

@@ -15,9 +15,12 @@ public class Quad : MonoBehaviour {
     public State state = State.NOFADE;
     public SpriteRenderer sprite;
 
+    float alpha = 0.01f;
+    Color color;
 	// Use this for initialization
 	void Start () {
-
+        sprite = GetComponent<SpriteRenderer>();
+        color = sprite.color;
 	}
 	
 	// Update is called once per frame
@@ -27,12 +30,17 @@ public class Quad : MonoBehaviour {
             case State.NOFADE:
                 //state = State.FADETOINV;
                 break;
+            case State.FADETOVIS:
+                color.a -= alpha;
+                sprite.color = color;
+                if (color.a <= 0.0f)
+                    state = State.IDLE;
+                break;
             case State.IDLE:
                 break;
             case State.FADETOINV:
                 break;
-            case State.FADETOVIS:
-                break;
+            
         }
 	}
 }
