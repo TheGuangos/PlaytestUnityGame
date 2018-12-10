@@ -10,6 +10,7 @@ public class Manager_xml : MonoBehaviour
     public GameObject txtOption2;
     public GameObject txtOption3;
     public GameObject txtOption4;
+    public GameObject counterClicks;
 
     GameObject[] textOptions;
 
@@ -21,6 +22,8 @@ public class Manager_xml : MonoBehaviour
 
         LoadSceneData();
         PopulateText();
+        AddCounterClicks();
+
 	}
 
     private void LoadSceneData()
@@ -56,4 +59,10 @@ public class Manager_xml : MonoBehaviour
             }
         }
     }
+
+    private void AddCounterClicks()
+    {
+        
+    }
+
 }
