@@ -12,8 +12,7 @@ public class Quad : MonoBehaviour {
         FADETOVIS,
         COMPLETED
     }
-
-    public State state = State.NOFADE;
+    [HideInInspector] public State state = State.NOFADE;
     public SpriteRenderer sprite;
 
     float timer = 0;
