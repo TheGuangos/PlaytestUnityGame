@@ -23,7 +23,7 @@ public class QuadManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+        
         blue.state = Quad.State.NOFADE;
 
         red.state = Quad.State.NOFADE;
@@ -50,14 +50,11 @@ public class QuadManager : MonoBehaviour {
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-
-
-            if (!go && Time.realtimeSinceStartup - timer > 5.0f)
-            {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
                 go = true;
                 timer = Time.realtimeSinceStartup;
-            }
+        }
 
         if (go && !blinking)
         {
