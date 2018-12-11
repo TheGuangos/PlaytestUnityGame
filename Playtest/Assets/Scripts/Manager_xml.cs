@@ -30,7 +30,7 @@ public class Manager_xml : MonoBehaviour
     {
         optionsByScenes = new Dictionary<string, List<string>>();
 
-        TextAsset xmlData = (TextAsset)Resources.Load("data");
+        TextAsset xmlData = (TextAsset)Resources.Load("Scene text");
         XmlDocument xmlDocument = new XmlDocument();
         xmlDocument.LoadXml(xmlData.text);
 
