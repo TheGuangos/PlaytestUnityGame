@@ -1,0 +1,10 @@
+Player:	<Set number>
+Name:	<Set name>
+Age:	<Set age>
+Gender:	<Set Gender>
+Experience:	<Low/Medium/High>
+
+-All Game Vars-
+Iterations:	0		
+Fails:	0
+Seconds:	0
