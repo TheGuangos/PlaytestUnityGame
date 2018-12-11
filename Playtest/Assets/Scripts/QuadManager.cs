@@ -10,10 +10,11 @@ public class QuadManager : MonoBehaviour {
     public Quad green;
     public Quad yellow;
 
-    int[] list = new int[15];
+    List<int> patron;
     int iterator = 0;
     bool go = false;
     bool blinking = false;
+    int level = 1;
 
 
     public Text counterText;
@@ -23,14 +24,6 @@ public class QuadManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        
-        blue.state = Quad.State.NOFADE;
-
-        red.state = Quad.State.NOFADE;
-        
-        yellow.state = Quad.State.NOFADE;
-
-        green.state = Quad.State.NOFADE;
 
         timer = Time.realtimeSinceStartup;
 
@@ -39,11 +32,8 @@ public class QuadManager : MonoBehaviour {
 
         iterator = 0;
         go = false;
-
-        for(int i = 0; i < 15; ++i)
-        {
-            list[i] = Random.Range(0, 4);
-        }
+        patron = new List<int>();
+        patron.Add(Random.Range(0, 4));
     }
 
     // Update is called once per frame
@@ -58,7 +48,7 @@ public class QuadManager : MonoBehaviour {
 
         if (go && !blinking)
         {
-            switch (list[iterator])
+            switch (patron[iterator])
             {
                 case 0:                     //blue
                     blue.state = Quad.State.FADETOVIS;
@@ -100,29 +90,28 @@ public class QuadManager : MonoBehaviour {
             {
                 blinking = false;
             }
-            if (red.state == Quad.State.COMPLETED)
+            else if (red.state == Quad.State.COMPLETED)
             {
                 blinking = false;
             }
-            if (green.state == Quad.State.COMPLETED)
+            else if (green.state == Quad.State.COMPLETED)
             {
                 blinking = false;
             }
-            if (yellow.state == Quad.State.COMPLETED)
+            else if (yellow.state == Quad.State.COMPLETED)
             {
                 blinking = false;
             }
         }
 
-        if (iterator >= 15)
+        if (iterator >= patron.Count)
         {
-
-            print("Se acabo el juego pisha");
+            print(patron);
+            print("Next level chaval");
+            
             iterator = 0;
-            for (int i = 0; i < 15; ++i)
-            {
-                list[i] = Random.Range(0, 4);
-            }
+            level++;
+            patron.Add(Random.Range(0, 4));
         }
 
     }
@@ -132,7 +121,7 @@ public class QuadManager : MonoBehaviour {
         /*if (Input.GetKeyDown(KeyCode.UpArrow))
 >>>>>>> d2595150837698a3fe9e69cb61ce1ecade09965b
         {
-            if (red.sprite.enabled)
+            if (red.sprite.enab8led)
                 red.sprite.enabled = false;
             counter_clicks++;
             SetText();        }
