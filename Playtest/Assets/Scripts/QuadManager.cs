@@ -10,12 +10,15 @@ public class QuadManager : MonoBehaviour {
     public Quad green;
     public Quad yellow;
 
+    public GameObject go_text;
+    bool go_wait = false;
+    float go_timer = 0.0f;
+
     List<int> patron;
     int iterator = 0;
     bool go = false;
     bool blinking = false;
     int level = 1;
-
 
     public Text counterText;
     public int counter_clicks;
@@ -29,6 +32,8 @@ public class QuadManager : MonoBehaviour {
 
         SetText();
         counter_clicks = 0;
+
+        go_text.SetActive(false);
 
         iterator = 0;
         go = false;
@@ -44,9 +49,11 @@ public class QuadManager : MonoBehaviour {
         {
                 go = true;
                 timer = Time.realtimeSinceStartup;
+                go_text.SetActive(false);
+
         }
 
-        if (go && !blinking)
+        if (go && !blinking && !go_wait)
         {
             switch (patron[iterator])
             {
@@ -83,6 +90,11 @@ public class QuadManager : MonoBehaviour {
                     break;
             }
         }
+        else if(Time.realtimeSinceStartup - go_timer >= 1.5f && go_wait == true)
+        {
+            go_wait = false;
+            go_text.SetActive(false);
+        }
 
         if (blinking)
         {
@@ -108,7 +120,11 @@ public class QuadManager : MonoBehaviour {
         {
             print(patron);
             print("Next level chaval");
-            
+
+            go_text.SetActive(true);
+            go_wait = true;
+            go_timer = Time.realtimeSinceStartup;
+
             iterator = 0;
             level++;
             patron.Add(Random.Range(0, 4));
