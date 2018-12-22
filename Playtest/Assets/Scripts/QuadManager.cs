@@ -12,6 +12,17 @@ public class QuadManager : MonoBehaviour {
         PLAYER
     }
 
+    //public AudioClip Do;
+    //public AudioClip Mi;
+    //public AudioClip Si;
+    //public AudioClip Sol;
+    //public AudioClip Start_fx;
+    //public AudioSource DoSource;
+    //public AudioSource MiSource;
+    //public AudioSource SiSource;
+    //public AudioSource SolSource;
+    //public AudioSource StartSource;
+
     public Quad blue;
     public Quad red;
     public Quad green;
@@ -35,6 +46,12 @@ public class QuadManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
+        //DoSource.clip = Do;
+        //MiSource.clip = Mi;
+        //SiSource.clip = Si;
+        //SolSource.clip = Sol;
+        //StartSource.clip = Start_fx;
 
         timer = Time.realtimeSinceStartup;
 
@@ -62,7 +79,8 @@ public class QuadManager : MonoBehaviour {
                     stage = Stage.ITERATION;
                     timer = Time.realtimeSinceStartup;
                     go_text.SetActive(false);
-
+                    //StartSource.Play();
+                    blinking = false;
                 }
                 break;
             case Stage.ITERATION:
