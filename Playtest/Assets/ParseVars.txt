@@ -1,0 +1,16 @@
+PlayTesting - Variables Parsing 
+
+Login date: 12/22/2018 11:06:12 PM
+Counter value: 
+Login date: 12/22/2018 11:18:21 PM
+Counter value: 
+Login date: 12/22/2018 11:18:37 PM
+Counter value: 
+Login date: 12/22/2018 11:21:43 PM
+Counter value: 
+Login date: 12/22/2018 11:22:21 PM
+Counter value: 
+Login date: 12/22/2018 11:25:06 PM
+Counter value: 
+Login date: 12/22/2018 11:25:44 PM
+Counter value: 
