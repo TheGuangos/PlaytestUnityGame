@@ -52,7 +52,6 @@ public class QuadManager : MonoBehaviour {
     public Text counterText;
     public Text levelText;
     public int counter_clicks = 0;
-    float timer = 0.0F;
     public float interval_blink = 0.5F;
 
     //public AudioClip video_audio;
@@ -66,8 +65,6 @@ public class QuadManager : MonoBehaviour {
         StartCoroutine(PlayVideo());
 
         MusicSource.clip = Start_fx;
-
-        timer = Time.realtimeSinceStartup;
 
         SetText();
         counter_clicks = 0;
@@ -97,7 +94,6 @@ public class QuadManager : MonoBehaviour {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     stage = Stage.ITERATION;
-                    timer = Time.realtimeSinceStartup;
                     go_text.SetActive(false);
                     blinking = false;
                     press_space_text.SetActive(false);
@@ -291,8 +287,6 @@ public class QuadManager : MonoBehaviour {
                 break;
             case Stage.RESTART:
                 stage = Stage.NONE;
-
-                timer = Time.realtimeSinceStartup;
                 
                 counter_clicks = 0;
 
