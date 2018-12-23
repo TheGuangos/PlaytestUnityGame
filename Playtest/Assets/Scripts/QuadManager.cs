@@ -9,7 +9,8 @@ public class QuadManager : MonoBehaviour {
     {
         NONE,
         ITERATION,
-        PLAYER
+        PLAYER,
+        RESTART
     }
 
     public AudioClip Do;
@@ -19,7 +20,10 @@ public class QuadManager : MonoBehaviour {
     public AudioClip Start_fx;
     public AudioClip GameOver_fx;
     public AudioSource MusicSource;
-  
+
+    public GameObject heart1;
+    public GameObject heart2;
+    public GameObject heart3;
 
     public Quad blue;
     public Quad red;
@@ -42,6 +46,8 @@ public class QuadManager : MonoBehaviour {
     bool blinking = false;
     int level = 1;
 
+    int lifes = 3;
+
     public Text counterText;
     public Text levelText;
     public int counter_clicks = 0;
@@ -62,6 +68,8 @@ public class QuadManager : MonoBehaviour {
         go_text.SetActive(false);
         perfect_text.SetActive(false);
         levelText.enabled = false;
+
+        lifes = 3;
 
         iterator = 0;
         iterator_player = 0;
@@ -176,9 +184,10 @@ public class QuadManager : MonoBehaviour {
                             //fail
                             MusicSource.clip = GameOver_fx;
                             MusicSource.Play();
+                            lifes--;
                         }
                     }
-                    else if(Input.GetKeyUp(KeyCode.UpArrow)) { red.SetVisible(); }
+                    else if (Input.GetKeyUp(KeyCode.UpArrow)) { red.SetVisible(); }
 
                     if (Input.GetKeyDown(KeyCode.RightArrow)) //green
                     {
@@ -196,9 +205,10 @@ public class QuadManager : MonoBehaviour {
                             //fail
                             MusicSource.clip = GameOver_fx;
                             MusicSource.Play();
+                            lifes--;
                         }
                     }
-                    else if(Input.GetKeyUp(KeyCode.RightArrow)) { green.SetVisible(); }
+                    else if (Input.GetKeyUp(KeyCode.RightArrow)) { green.SetVisible(); }
 
                     if (Input.GetKeyDown(KeyCode.DownArrow)) //yellow
                     {
@@ -216,9 +226,10 @@ public class QuadManager : MonoBehaviour {
                             //fail
                             MusicSource.clip = GameOver_fx;
                             MusicSource.Play();
+                            lifes--;
                         }
                     }
-                    else if(Input.GetKeyUp(KeyCode.DownArrow)) { yellow.SetVisible(); }
+                    else if (Input.GetKeyUp(KeyCode.DownArrow)) { yellow.SetVisible(); }
 
                     if (Input.GetKeyDown(KeyCode.LeftArrow)) //blue
                     {
@@ -236,9 +247,11 @@ public class QuadManager : MonoBehaviour {
                             //fail
                             MusicSource.clip = GameOver_fx;
                             MusicSource.Play();
+                            lifes--;
                         }
                     }
-                    else if(Input.GetKeyUp(KeyCode.LeftArrow)) { blue.SetVisible(); }
+                    else if (Input.GetKeyUp(KeyCode.LeftArrow)) { blue.SetVisible(); }
+                    SetLife();
                 }
                 if (iterator_player >= patron.Count)
                 {
@@ -267,6 +280,62 @@ public class QuadManager : MonoBehaviour {
                 }
                 SetText();
 
+                break;
+            case Stage.RESTART:
+                stage = Stage.NONE;
+
+                timer = Time.realtimeSinceStartup;
+                
+                counter_clicks = 0;
+
+                press_space_text.SetActive(true);
+                go_text.SetActive(false);
+                perfect_text.SetActive(false);
+                levelText.enabled = false;
+
+                lifes = 3;
+                
+                go_wait = false;
+
+                patron.Clear();
+                patron = new List<int>();
+                patron.Add(Random.Range(0, 4));
+
+                MusicSource.Play();
+                
+                iterator = 0;
+                iterator_player = 0;
+                level = 0;
+
+                heart1.SetActive(true);
+                heart2.SetActive(true);
+                heart3.SetActive(true);
+
+                SetText();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void SetLife()
+    {
+        switch (lifes)
+        {
+            case 3:
+                break;
+            case 2:
+                heart1.SetActive(false);
+                break;
+            case 1:
+                heart1.SetActive(false);
+                heart2.SetActive(false);
+                break;
+            case 0:
+                heart1.SetActive(false);
+                heart2.SetActive(false);
+                heart3.SetActive(false);
+                stage = Stage.RESTART;
                 break;
             default:
                 break;

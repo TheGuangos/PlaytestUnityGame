@@ -18,13 +18,13 @@ public class Heart : MonoBehaviour
     {
         if (inc)
         {
-            scale += 0.05f;
+            scale += 0.01f;
         }
         else
         {
-            scale -= 0.05f;
+            scale -= 0.01f;
         }
-        if (scale >= 3.0f || scale <= 1.0f)
+        if (scale >= 1.2f || scale <= 1.0f)
         {
             inc = !inc;
         }
