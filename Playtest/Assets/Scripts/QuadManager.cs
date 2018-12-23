@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class QuadManager : MonoBehaviour {
 
@@ -47,8 +48,15 @@ public class QuadManager : MonoBehaviour {
     float timer = 0.0F;
     public float interval_blink = 0.5F;
 
+    //public AudioClip video_audio;
+    public VideoPlayer video;
+    public RawImage rawImage;
+    public AudioSource VideoSource;
+
+
     // Use this for initialization
     void Start () {
+        StartCoroutine(PlayVideo());
 
         MusicSource.clip = Start_fx;
 
@@ -274,5 +282,20 @@ public class QuadManager : MonoBehaviour {
     void SetText()
     {
         counterText.text = "Score: " + counter_clicks.ToString();
+    }
+
+    IEnumerator PlayVideo()
+    {
+        video.Prepare();
+        WaitForSeconds waitForSeconds = new WaitForSeconds(1);
+        while (!video.isPrepared)
+        {
+            yield return waitForSeconds;
+            break;
+        }
+        rawImage.texture = video.texture;
+        video.Play();
+        //VideoSource.clip = video_audio;
+        VideoSource.Play();
     }
 }
