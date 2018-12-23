@@ -159,7 +159,7 @@ public class QuadManager : MonoBehaviour {
                 break;
             case Stage.PLAYER:
 
-                if (go_wait && Time.realtimeSinceStartup - go_timer >= 1.5f)
+                if (go_wait && Time.realtimeSinceStartup - go_timer >= 0.25f)
                 {
                     go_wait = false;
                     go_text.SetActive(false);
