@@ -14,6 +14,7 @@ public class Quad : MonoBehaviour {
     }
     [HideInInspector] public State state = State.NOFADE;
     public SpriteRenderer sprite;
+    Behaviour halo;
 
     float timer = 0;
 
@@ -23,7 +24,9 @@ public class Quad : MonoBehaviour {
 	void Start () {
         sprite = GetComponent<SpriteRenderer>();
         color = sprite.color;
-	}
+        halo = (Behaviour)gameObject.GetComponent("Halo");
+        halo.enabled = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -39,12 +42,14 @@ public class Quad : MonoBehaviour {
                 {
                     state = State.IDLE;
                     timer = Time.realtimeSinceStartup;
+                    halo.enabled = true;
                 }
                 break;
             case State.IDLE:
                 if (Time.realtimeSinceStartup - timer >= 1.0f)
                 {
                     state = State.FADETOINV;
+                    halo.enabled = false;
                 }
                 break;
             case State.FADETOINV:
