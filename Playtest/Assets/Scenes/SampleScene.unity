@@ -465,6 +465,7 @@ MonoBehaviour:
   press_space_text: {fileID: 816380670}
   go_text: {fileID: 1672687123}
   perfect_text: {fileID: 2037897891}
+  times_played: 0
   counterText: {fileID: 930125943}
   levelText: {fileID: 101710011}
   counter_clicks: 0
@@ -1043,6 +1044,7 @@ MonoBehaviour:
   press_space_text: {fileID: 0}
   go_text: {fileID: 0}
   perfect_text: {fileID: 0}
+  times_played: 0
   counterText: {fileID: 0}
   levelText: {fileID: 0}
   counter_clicks: 0
@@ -1384,11 +1386,81 @@ GameObject:
   m_PrefabParentObject: {fileID: 1233477119460762, guid: e18f853ecc72af94d934e96290a2e335,
     type: 2}
   m_PrefabInternal: {fileID: 198833882}
+--- !u!114 &949989858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 949989854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e665ee9f1a867a247b2973aa796f8681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Do: {fileID: 0}
+  Mi: {fileID: 0}
+  Si: {fileID: 0}
+  Sol: {fileID: 0}
+  Start_fx: {fileID: 0}
+  GameOver_fx: {fileID: 0}
+  MusicSource: {fileID: 0}
+  heart1: {fileID: 0}
+  heart2: {fileID: 0}
+  heart3: {fileID: 0}
+  blue: {fileID: 0}
+  red: {fileID: 0}
+  green: {fileID: 0}
+  yellow: {fileID: 0}
+  press_space_text: {fileID: 0}
+  go_text: {fileID: 0}
+  perfect_text: {fileID: 0}
+  times_played: 0
+  counterText: {fileID: 0}
+  levelText: {fileID: 0}
+  counter_clicks: 0
+  interval_blink: 0.5
+  video: {fileID: 0}
+  VideoSource: {fileID: 0}
 --- !u!1 &1050662363 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1233477119460762, guid: e18f853ecc72af94d934e96290a2e335,
     type: 2}
   m_PrefabInternal: {fileID: 2045766947}
+--- !u!114 &1050662367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1050662363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e665ee9f1a867a247b2973aa796f8681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Do: {fileID: 0}
+  Mi: {fileID: 0}
+  Si: {fileID: 0}
+  Sol: {fileID: 0}
+  Start_fx: {fileID: 0}
+  GameOver_fx: {fileID: 0}
+  MusicSource: {fileID: 0}
+  heart1: {fileID: 0}
+  heart2: {fileID: 0}
+  heart3: {fileID: 0}
+  blue: {fileID: 0}
+  red: {fileID: 0}
+  green: {fileID: 0}
+  yellow: {fileID: 0}
+  press_space_text: {fileID: 0}
+  go_text: {fileID: 0}
+  perfect_text: {fileID: 0}
+  times_played: 0
+  counterText: {fileID: 0}
+  levelText: {fileID: 0}
+  counter_clicks: 0
+  interval_blink: 0.5
+  video: {fileID: 0}
+  VideoSource: {fileID: 0}
 --- !u!1 &1054683230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,6 +1506,41 @@ GameObject:
   m_PrefabParentObject: {fileID: 1233477119460762, guid: e18f853ecc72af94d934e96290a2e335,
     type: 2}
   m_PrefabInternal: {fileID: 692668308}
+--- !u!114 &1569283101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1569283097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e665ee9f1a867a247b2973aa796f8681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Do: {fileID: 0}
+  Mi: {fileID: 0}
+  Si: {fileID: 0}
+  Sol: {fileID: 0}
+  Start_fx: {fileID: 0}
+  GameOver_fx: {fileID: 0}
+  MusicSource: {fileID: 0}
+  heart1: {fileID: 0}
+  heart2: {fileID: 0}
+  heart3: {fileID: 0}
+  blue: {fileID: 0}
+  red: {fileID: 0}
+  green: {fileID: 0}
+  yellow: {fileID: 0}
+  press_space_text: {fileID: 0}
+  go_text: {fileID: 0}
+  perfect_text: {fileID: 0}
+  times_played: 0
+  counterText: {fileID: 0}
+  levelText: {fileID: 0}
+  counter_clicks: 0
+  interval_blink: 0.5
+  video: {fileID: 0}
+  VideoSource: {fileID: 0}
 --- !u!1 &1667604165
 GameObject:
   m_ObjectHideFlags: 0
