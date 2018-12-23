@@ -26,6 +26,8 @@ public class QuadManager : MonoBehaviour {
     public Quad green;
     public Quad yellow;
 
+    public GameObject press_space_text;
+
     public GameObject go_text;
     bool go_wait = false;
     float go_timer = 0.0f;
@@ -55,6 +57,7 @@ public class QuadManager : MonoBehaviour {
         SetText();
         counter_clicks = 0;
 
+        press_space_text.SetActive(true);
         go_text.SetActive(false);
         perfect_text.SetActive(false);
 
@@ -79,6 +82,8 @@ public class QuadManager : MonoBehaviour {
                     timer = Time.realtimeSinceStartup;
                     go_text.SetActive(false);
                     blinking = false;
+                    press_space_text.SetActive(false);
+
                 }
                 break;
             case Stage.ITERATION:
@@ -112,8 +117,6 @@ public class QuadManager : MonoBehaviour {
                     }
                     blinking = true;
                     iterator++;
-                    counter_clicks++;
-                    SetText();
                 }
                 else
                 {
@@ -164,6 +167,7 @@ public class QuadManager : MonoBehaviour {
                             iterator_player++;
                             MusicSource.clip = Mi;
                             MusicSource.Play();
+                            counter_clicks++;
                         }
                         else
                         {
@@ -183,6 +187,7 @@ public class QuadManager : MonoBehaviour {
                             iterator_player++;
                             MusicSource.clip = Sol;
                             MusicSource.Play();
+                            counter_clicks++;
                         }
                         else
                         {
@@ -202,6 +207,7 @@ public class QuadManager : MonoBehaviour {
                             iterator_player++;
                             MusicSource.clip = Si;
                             MusicSource.Play();
+                            counter_clicks++;
                         }
                         else
                         {
@@ -221,6 +227,7 @@ public class QuadManager : MonoBehaviour {
                             iterator_player++;
                             MusicSource.clip = Do;
                             MusicSource.Play();
+                            counter_clicks++;
                         }
                         else
                         {
@@ -256,6 +263,8 @@ public class QuadManager : MonoBehaviour {
                         }
                     }
                 }
+                SetText();
+
                 break;
             default:
                 break;
@@ -264,6 +273,6 @@ public class QuadManager : MonoBehaviour {
 
     void SetText()
     {
-        counterText.text = "Counter: " + counter_clicks.ToString();
+        counterText.text = "Score: " + counter_clicks.ToString();
     }
 }
