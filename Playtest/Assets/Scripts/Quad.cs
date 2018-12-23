@@ -17,7 +17,7 @@ public class Quad : MonoBehaviour {
 
     float timer = 0;
 
-    float alpha = 0.01f;
+    float alpha = 0.05f;
     Color color;
 	// Use this for initialization
 	void Start () {
