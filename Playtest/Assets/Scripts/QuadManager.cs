@@ -162,8 +162,8 @@ public class QuadManager : MonoBehaviour {
                         {
                             //succes
                             iterator_player++;
-                            //MusicSource.clip = Mi;
-                            //MusicSource.Play();
+                            MusicSource.clip = Mi;
+                            MusicSource.Play();
                         }
                         else
                         {
@@ -181,8 +181,8 @@ public class QuadManager : MonoBehaviour {
                         {
                             //succes
                             iterator_player++;
-                            //MusicSource.clip = Sol;
-                            //MusicSource.Play();
+                            MusicSource.clip = Sol;
+                            MusicSource.Play();
                         }
                         else
                         {
@@ -200,8 +200,8 @@ public class QuadManager : MonoBehaviour {
                         {
                             //succes
                             iterator_player++;
-                            //MusicSource.clip = Si;
-                            //MusicSource.Play();
+                            MusicSource.clip = Si;
+                            MusicSource.Play();
                         }
                         else
                         {
@@ -219,8 +219,8 @@ public class QuadManager : MonoBehaviour {
                         {
                             //succes
                             iterator_player++;
-                            //MusicSource.clip = Do;
-                            //MusicSource.Play();
+                            MusicSource.clip = Do;
+                            MusicSource.Play();
                         }
                         else
                         {
