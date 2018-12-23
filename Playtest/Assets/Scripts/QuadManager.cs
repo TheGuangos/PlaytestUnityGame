@@ -43,6 +43,7 @@ public class QuadManager : MonoBehaviour {
     int level = 1;
 
     public Text counterText;
+    public Text levelText;
     public int counter_clicks = 0;
     float timer = 0.0F;
     public float interval_blink = 0.5F;
@@ -60,6 +61,7 @@ public class QuadManager : MonoBehaviour {
         press_space_text.SetActive(true);
         go_text.SetActive(false);
         perfect_text.SetActive(false);
+        levelText.enabled = false;
 
         iterator = 0;
         iterator_player = 0;
@@ -83,7 +85,7 @@ public class QuadManager : MonoBehaviour {
                     go_text.SetActive(false);
                     blinking = false;
                     press_space_text.SetActive(false);
-
+                    levelText.enabled = true;
                 }
                 break;
             case Stage.ITERATION:
@@ -274,5 +276,6 @@ public class QuadManager : MonoBehaviour {
     void SetText()
     {
         counterText.text = "Score: " + counter_clicks.ToString();
+        levelText.text = "Level: " + level.ToString();
     }
 }
