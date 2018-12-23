@@ -17,11 +17,9 @@ public class QuadManager : MonoBehaviour {
     public AudioClip Si;
     public AudioClip Sol;
     public AudioClip Start_fx;
-    public AudioSource DoSource;
-    public AudioSource MiSource;
-    public AudioSource SiSource;
-    public AudioSource SolSource;
-    public AudioSource StartSource;
+    public AudioClip GameOver_fx;
+    public AudioSource MusicSource;
+  
 
     public Quad blue;
     public Quad red;
@@ -50,7 +48,7 @@ public class QuadManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        StartSource.clip = Start_fx;
+        MusicSource.clip = Start_fx;
 
         timer = Time.realtimeSinceStartup;
 
@@ -66,7 +64,7 @@ public class QuadManager : MonoBehaviour {
         go_wait = false;
         patron = new List<int>();
         patron.Add(Random.Range(0, 4));
-        StartSource.Play();
+        MusicSource.Play();
     }
 
     // Update is called once per frame
@@ -90,23 +88,23 @@ public class QuadManager : MonoBehaviour {
                     {
                         case 0:                     //blue
                             blue.state = Quad.State.FADETOVIS;
-                            DoSource.clip = Do;
-                            DoSource.Play();
+                            MusicSource.clip = Do;
+                            MusicSource.Play();
                             break;
                         case 1:                     //red
                             red.state = Quad.State.FADETOVIS;
-                            MiSource.clip = Mi;
-                            MiSource.Play();
+                            MusicSource.clip = Mi;
+                            MusicSource.Play();
                             break;
                         case 2:                     //yellow
                             yellow.state = Quad.State.FADETOVIS;
-                            SiSource.clip = Si;
-                            SiSource.Play();
+                            MusicSource.clip = Si;
+                            MusicSource.Play();
                             break;
                         case 3:                     //green
                             green.state = Quad.State.FADETOVIS;
-                            SolSource.clip = Sol;
-                            SolSource.Play();
+                            MusicSource.clip = Sol;
+                            MusicSource.Play();
                             break;
                         default:
                             print("oh oh");
@@ -164,10 +162,14 @@ public class QuadManager : MonoBehaviour {
                         {
                             //succes
                             iterator_player++;
+                            //MusicSource.clip = Mi;
+                            //MusicSource.Play();
                         }
                         else
                         {
                             //fail
+                            MusicSource.clip = GameOver_fx;
+                            MusicSource.Play();
                         }
                     }
                     else if(Input.GetKeyUp(KeyCode.UpArrow)) { red.SetVisible(); }
@@ -179,10 +181,14 @@ public class QuadManager : MonoBehaviour {
                         {
                             //succes
                             iterator_player++;
+                            //MusicSource.clip = Sol;
+                            //MusicSource.Play();
                         }
                         else
                         {
                             //fail
+                            MusicSource.clip = GameOver_fx;
+                            MusicSource.Play();
                         }
                     }
                     else if(Input.GetKeyUp(KeyCode.RightArrow)) { green.SetVisible(); }
@@ -194,10 +200,14 @@ public class QuadManager : MonoBehaviour {
                         {
                             //succes
                             iterator_player++;
+                            //MusicSource.clip = Si;
+                            //MusicSource.Play();
                         }
                         else
                         {
                             //fail
+                            MusicSource.clip = GameOver_fx;
+                            MusicSource.Play();
                         }
                     }
                     else if(Input.GetKeyUp(KeyCode.DownArrow)) { yellow.SetVisible(); }
@@ -209,10 +219,14 @@ public class QuadManager : MonoBehaviour {
                         {
                             //succes
                             iterator_player++;
+                            //MusicSource.clip = Do;
+                            //MusicSource.Play();
                         }
                         else
                         {
                             //fail
+                            MusicSource.clip = GameOver_fx;
+                            MusicSource.Play();
                         }
                     }
                     else if(Input.GetKeyUp(KeyCode.LeftArrow)) { blue.SetVisible(); }
