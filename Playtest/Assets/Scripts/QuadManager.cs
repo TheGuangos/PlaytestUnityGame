@@ -41,7 +41,7 @@ public class QuadManager : MonoBehaviour {
     float perfect_timer = 0.0f;
 
     List<int> patron;
-    int rand_video = 0;
+    public int times_played = 0;
     int iterator = 0;
     int iterator_player = 0;
     Stage stage = Stage.NONE;
@@ -62,8 +62,6 @@ public class QuadManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        MusicSource.clip = Start_fx;
-
         SetText();
         counter_clicks = 0;
 
@@ -80,7 +78,8 @@ public class QuadManager : MonoBehaviour {
         go_wait = false;
         patron = new List<int>();
         patron.Add(Random.Range(0, 4));
-     
+
+        MusicSource.clip = Start_fx;
         MusicSource.Play();
     }
 
@@ -98,10 +97,16 @@ public class QuadManager : MonoBehaviour {
                     blinking = false;
                     press_space_text.SetActive(false);
                     levelText.enabled = true;
-                    rand_video = Random.Range(0, 3);
-                    if (rand_video == 1)
+                    times_played++;
+
+                    if (times_played == 3 || times_played == 5)
+                    {
                         video.Play();
-                    
+                    }
+                    if (times_played == 2 || times_played == 5)
+                    {
+
+                    }
                 }
                 break;
             case Stage.ITERATION:
@@ -315,8 +320,9 @@ public class QuadManager : MonoBehaviour {
                 patron = new List<int>();
                 patron.Add(Random.Range(0, 4));
 
+                MusicSource.clip = Start_fx;
                 MusicSource.Play();
-                
+
                 iterator = 0;
                 iterator_player = 0;
                 level = 0;
@@ -326,6 +332,12 @@ public class QuadManager : MonoBehaviour {
                 heart3.SetActive(true);
 
                 SetText();
+                video.Stop();
+                blue.SetVisible();
+                yellow.SetVisible();
+                red.SetVisible();
+                green.SetVisible();
+
                 break;
             default:
                 break;

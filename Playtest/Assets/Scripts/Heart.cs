@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Heart : MonoBehaviour
 {
-
     private float scale = 1.0F;
-    private bool inc = true;
+    public bool inc = true;
+
     // Use this for initialization
     void Start()
     {
