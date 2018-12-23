@@ -158,7 +158,6 @@ public class QuadManager : MonoBehaviour {
 
                 if (iterator >= patron.Count && !blinking) //when iterates all list
                 {
-                    print("te toca chaval");
                     stage = Stage.PLAYER;
                     go_text.SetActive(true);
                     go_wait = true;
@@ -282,6 +281,15 @@ public class QuadManager : MonoBehaviour {
                             iterator_player = 0;
                             stage = Stage.ITERATION;
                             level++;
+                            if(level>=5 && red.idle_time >= 0.05f)
+                            {
+                                red.idle_time -= 0.05f;
+                                blue.idle_time -= 0.05f;
+                                green.idle_time -= 0.05f;
+                                yellow.idle_time -= 0.05f;
+                                print(red.idle_time);
+                            }
+
                             patron.Add(Random.Range(0, 4));
                         }
                     }
