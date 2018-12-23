@@ -15,10 +15,11 @@ public class Quad : MonoBehaviour {
     [HideInInspector] public State state = State.NOFADE;
     public SpriteRenderer sprite;
     Behaviour halo;
+    public float idle_time;
+    public float transition_time = 0.05f;
 
     float timer = 0;
 
-    float alpha = 0.05f;
     Color color;
 	// Use this for initialization
 	void Start () {
@@ -36,7 +37,7 @@ public class Quad : MonoBehaviour {
                 //state = State.FADETOINV;
                 break;
             case State.FADETOVIS:
-                color.a -= alpha;
+                color.a -= transition_time;
                 sprite.color = color;
                 if (color.a <= 0.0f)
                 {
@@ -46,14 +47,14 @@ public class Quad : MonoBehaviour {
                 }
                 break;
             case State.IDLE:
-                if (Time.realtimeSinceStartup - timer >= 1.0f)
+                if (Time.realtimeSinceStartup - timer >= idle_time)
                 {
                     state = State.FADETOINV;
                     halo.enabled = false;
                 }
                 break;
             case State.FADETOINV:
-                color.a += alpha;
+                color.a += transition_time;
                 sprite.color = color;
                 if (color.a >= 1.0f)
                     state = State.COMPLETED;
