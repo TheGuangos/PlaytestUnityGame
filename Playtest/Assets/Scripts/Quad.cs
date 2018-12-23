@@ -59,4 +59,16 @@ public class Quad : MonoBehaviour {
             
         }
 	}
+
+    public void SetInvisible()
+    {
+        color.a = 0.0f;
+        sprite.color = color;
+    }
+
+    public void SetVisible()
+    {
+        color.a = 1.0f;
+        sprite.color = color;
+    }
 }

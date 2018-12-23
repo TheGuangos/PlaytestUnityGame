@@ -129,7 +129,7 @@ public class QuadManager : MonoBehaviour {
                     }
                 }
 
-                if (iterator >= patron.Count && !blinking)
+                if (iterator >= patron.Count && !blinking) //when iterates all list
                 {
                     print("te toca chaval");
                     stage = Stage.PLAYER;
@@ -148,8 +148,10 @@ public class QuadManager : MonoBehaviour {
                 }
                 else if (!go_wait)
                 {
-                    if(Input.GetKeyDown(KeyCode.UpArrow))
-                        if(patron[iterator_player] == 1)
+                    if (Input.GetKeyDown(KeyCode.UpArrow)) //red
+                    {
+                        red.SetInvisible();
+                        if (patron[iterator_player] == 1)
                         {
                             //succes
                             iterator_player++;
@@ -158,7 +160,12 @@ public class QuadManager : MonoBehaviour {
                         {
                             //fail
                         }
-                    else if (Input.GetKeyDown(KeyCode.RightArrow))
+                    }
+                    else if(Input.GetKeyUp(KeyCode.UpArrow)) { red.SetVisible(); }
+
+                    if (Input.GetKeyDown(KeyCode.RightArrow)) //green
+                    {
+                        green.SetInvisible();
                         if (patron[iterator_player] == 3)
                         {
                             //succes
@@ -168,7 +175,12 @@ public class QuadManager : MonoBehaviour {
                         {
                             //fail
                         }
-                    else if (Input.GetKeyDown(KeyCode.DownArrow))
+                    }
+                    else if(Input.GetKeyUp(KeyCode.RightArrow)) { green.SetVisible(); }
+
+                    if (Input.GetKeyDown(KeyCode.DownArrow)) //yellow
+                    {
+                        yellow.SetInvisible();
                         if (patron[iterator_player] == 2)
                         {
                             //succes
@@ -178,7 +190,12 @@ public class QuadManager : MonoBehaviour {
                         {
                             //fail
                         }
-                    else if (Input.GetKeyDown(KeyCode.LeftArrow))
+                    }
+                    else if(Input.GetKeyUp(KeyCode.DownArrow)) { yellow.SetVisible(); }
+
+                    if (Input.GetKeyDown(KeyCode.LeftArrow)) //blue
+                    {
+                        blue.SetInvisible();
                         if (patron[iterator_player] == 0)
                         {
                             //succes
@@ -188,6 +205,8 @@ public class QuadManager : MonoBehaviour {
                         {
                             //fail
                         }
+                    }
+                    else if(Input.GetKeyUp(KeyCode.LeftArrow)) { blue.SetVisible(); }
                 }
                 if (iterator_player >= patron.Count)
                 {
