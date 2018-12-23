@@ -29,6 +29,9 @@ public class QuadManager : MonoBehaviour {
     public GameObject go_text;
     bool go_wait = false;
     float go_timer = 0.0f;
+    public GameObject perfect_text;
+    bool perfect_wait = false;
+    float perfect_timer = 0.0f;
 
     List<int> patron;
     int iterator = 0;
@@ -53,6 +56,7 @@ public class QuadManager : MonoBehaviour {
         counter_clicks = 0;
 
         go_text.SetActive(false);
+        perfect_text.SetActive(false);
 
         iterator = 0;
         iterator_player = 0;
@@ -147,6 +151,7 @@ public class QuadManager : MonoBehaviour {
                     go_wait = false;
                     go_text.SetActive(false);
                     iterator_player = 0;
+                    perfect_wait = true;
                 }
                 else if (!go_wait)
                 {
@@ -228,11 +233,28 @@ public class QuadManager : MonoBehaviour {
                 }
                 if (iterator_player >= patron.Count)
                 {
-                    iterator = 0;
-                    iterator_player = 0;
-                    stage = Stage.ITERATION;
-                    level++;
-                    patron.Add(Random.Range(0, 4));
+                    if (perfect_wait)
+                    {
+                        perfect_wait = false;
+                        perfect_timer = Time.realtimeSinceStartup;
+                        perfect_text.SetActive(true);
+                    }
+                    else
+                    {
+                        if (Time.realtimeSinceStartup - perfect_timer >= 1.0f)
+                        {
+                            perfect_text.SetActive(false);
+                            red.SetVisible();
+                            yellow.SetVisible();
+                            blue.SetVisible();
+                            green.SetVisible();
+                            iterator = 0;
+                            iterator_player = 0;
+                            stage = Stage.ITERATION;
+                            level++;
+                            patron.Add(Random.Range(0, 4));
+                        }
+                    }
                 }
                 break;
             default:
