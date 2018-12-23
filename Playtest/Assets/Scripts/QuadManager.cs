@@ -62,6 +62,7 @@ public class QuadManager : MonoBehaviour {
         go_wait = false;
         patron = new List<int>();
         patron.Add(Random.Range(0, 4));
+        StartSource.Play();
     }
 
     // Update is called once per frame
@@ -75,7 +76,6 @@ public class QuadManager : MonoBehaviour {
                     stage = Stage.ITERATION;
                     timer = Time.realtimeSinceStartup;
                     go_text.SetActive(false);
-                    StartSource.Play();
                     blinking = false;
                 }
                 break;
