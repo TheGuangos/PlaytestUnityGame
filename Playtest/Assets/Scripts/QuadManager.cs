@@ -47,10 +47,6 @@ public class QuadManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        DoSource.clip = Do;
-        MiSource.clip = Mi;
-        SiSource.clip = Si;
-        SolSource.clip = Sol;
         StartSource.clip = Start_fx;
 
         timer = Time.realtimeSinceStartup;
@@ -90,15 +86,23 @@ public class QuadManager : MonoBehaviour {
                     {
                         case 0:                     //blue
                             blue.state = Quad.State.FADETOVIS;
+                            DoSource.clip = Do;
+                            DoSource.Play();
                             break;
                         case 1:                     //red
                             red.state = Quad.State.FADETOVIS;
+                            MiSource.clip = Mi;
+                            MiSource.Play();
                             break;
                         case 2:                     //yellow
                             yellow.state = Quad.State.FADETOVIS;
+                            SiSource.clip = Si;
+                            SiSource.Play();
                             break;
                         case 3:                     //green
                             green.state = Quad.State.FADETOVIS;
+                            SolSource.clip = Sol;
+                            SolSource.Play();
                             break;
                         default:
                             print("oh oh");
