@@ -12,16 +12,16 @@ public class QuadManager : MonoBehaviour {
         PLAYER
     }
 
-    //public AudioClip Do;
-    //public AudioClip Mi;
-    //public AudioClip Si;
-    //public AudioClip Sol;
-    //public AudioClip Start_fx;
-    //public AudioSource DoSource;
-    //public AudioSource MiSource;
-    //public AudioSource SiSource;
-    //public AudioSource SolSource;
-    //public AudioSource StartSource;
+    public AudioClip Do;
+    public AudioClip Mi;
+    public AudioClip Si;
+    public AudioClip Sol;
+    public AudioClip Start_fx;
+    public AudioSource DoSource;
+    public AudioSource MiSource;
+    public AudioSource SiSource;
+    public AudioSource SolSource;
+    public AudioSource StartSource;
 
     public Quad blue;
     public Quad red;
@@ -47,11 +47,7 @@ public class QuadManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        //DoSource.clip = Do;
-        //MiSource.clip = Mi;
-        //SiSource.clip = Si;
-        //SolSource.clip = Sol;
-        //StartSource.clip = Start_fx;
+        StartSource.clip = Start_fx;
 
         timer = Time.realtimeSinceStartup;
 
@@ -66,6 +62,7 @@ public class QuadManager : MonoBehaviour {
         go_wait = false;
         patron = new List<int>();
         patron.Add(Random.Range(0, 4));
+        StartSource.Play();
     }
 
     // Update is called once per frame
@@ -79,7 +76,6 @@ public class QuadManager : MonoBehaviour {
                     stage = Stage.ITERATION;
                     timer = Time.realtimeSinceStartup;
                     go_text.SetActive(false);
-                    //StartSource.Play();
                     blinking = false;
                 }
                 break;
@@ -90,15 +86,23 @@ public class QuadManager : MonoBehaviour {
                     {
                         case 0:                     //blue
                             blue.state = Quad.State.FADETOVIS;
+                            DoSource.clip = Do;
+                            DoSource.Play();
                             break;
                         case 1:                     //red
                             red.state = Quad.State.FADETOVIS;
+                            MiSource.clip = Mi;
+                            MiSource.Play();
                             break;
                         case 2:                     //yellow
                             yellow.state = Quad.State.FADETOVIS;
+                            SiSource.clip = Si;
+                            SiSource.Play();
                             break;
                         case 3:                     //green
                             green.state = Quad.State.FADETOVIS;
+                            SolSource.clip = Sol;
+                            SolSource.Play();
                             break;
                         default:
                             print("oh oh");
