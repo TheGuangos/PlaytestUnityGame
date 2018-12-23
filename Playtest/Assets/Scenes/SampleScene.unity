@@ -184,7 +184,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -335.21, y: 256.7}
+  m_AnchoredPosition: {x: -335.21, y: 234}
   m_SizeDelta: {x: 244.40002, y: 57.299988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &186708516 stripped
@@ -467,9 +467,8 @@ MonoBehaviour:
   levelText: {fileID: 101710011}
   counter_clicks: 0
   interval_blink: 0.5
-  video: {fileID: 0}
-  rawImage: {fileID: 0}
-  VideoSource: {fileID: 0}
+  video: {fileID: 721686766}
+  VideoSource: {fileID: 721686765}
 --- !u!4 &395496362
 Transform:
   m_ObjectHideFlags: 0
@@ -703,7 +702,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.28426
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -860,6 +859,7 @@ GameObject:
   - component: {fileID: 721686767}
   - component: {fileID: 721686766}
   - component: {fileID: 721686765}
+  - component: {fileID: 721686768}
   m_Layer: 0
   m_Name: Video Player
   m_TagString: Untagged
@@ -990,10 +990,10 @@ VideoPlayer:
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 1
-  m_WaitForFirstFrame: 1
+  m_WaitForFirstFrame: 0
   m_FrameReadyEventEnabled: 0
 --- !u!4 &721686767
 Transform:
@@ -1008,6 +1008,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &721686768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 721686764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e665ee9f1a867a247b2973aa796f8681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Do: {fileID: 0}
+  Mi: {fileID: 0}
+  Si: {fileID: 0}
+  Sol: {fileID: 0}
+  Start_fx: {fileID: 0}
+  GameOver_fx: {fileID: 0}
+  MusicSource: {fileID: 0}
+  heart1: {fileID: 0}
+  heart2: {fileID: 0}
+  heart3: {fileID: 0}
+  blue: {fileID: 0}
+  red: {fileID: 0}
+  green: {fileID: 0}
+  yellow: {fileID: 0}
+  press_space_text: {fileID: 0}
+  go_text: {fileID: 0}
+  perfect_text: {fileID: 0}
+  counterText: {fileID: 0}
+  levelText: {fileID: 0}
+  counter_clicks: 0
+  interval_blink: 0.5
+  video: {fileID: 721686766}
+  VideoSource: {fileID: 721686765}
 --- !u!1 &816380670
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,7 +1328,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 376, y: 234}
+  m_AnchoredPosition: {x: 375, y: 218.65}
   m_SizeDelta: {x: 235.1, y: 88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &930125943
@@ -1837,11 +1871,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 134
+    m_FontSize: 101
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 151
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1

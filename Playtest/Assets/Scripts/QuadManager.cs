@@ -41,6 +41,7 @@ public class QuadManager : MonoBehaviour {
     float perfect_timer = 0.0f;
 
     List<int> patron;
+    int rand_video = 0;
     int iterator = 0;
     int iterator_player = 0;
     Stage stage = Stage.NONE;
@@ -52,22 +53,16 @@ public class QuadManager : MonoBehaviour {
     public Text counterText;
     public Text levelText;
     public int counter_clicks = 0;
-    float timer = 0.0F;
     public float interval_blink = 0.5F;
 
-    //public AudioClip video_audio;
     public VideoPlayer video;
-    public RawImage rawImage;
     public AudioSource VideoSource;
 
 
     // Use this for initialization
     void Start () {
-        StartCoroutine(PlayVideo());
 
         MusicSource.clip = Start_fx;
-
-        timer = Time.realtimeSinceStartup;
 
         SetText();
         counter_clicks = 0;
@@ -85,23 +80,28 @@ public class QuadManager : MonoBehaviour {
         go_wait = false;
         patron = new List<int>();
         patron.Add(Random.Range(0, 4));
+     
         MusicSource.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
+    
         switch (stage)
         {
             case Stage.NONE:
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     stage = Stage.ITERATION;
-                    timer = Time.realtimeSinceStartup;
                     go_text.SetActive(false);
                     blinking = false;
                     press_space_text.SetActive(false);
                     levelText.enabled = true;
+                    rand_video = Random.Range(0, 3);
+                    if (rand_video == 1)
+                        video.Play();
+                    
                 }
                 break;
             case Stage.ITERATION:
@@ -291,8 +291,6 @@ public class QuadManager : MonoBehaviour {
                 break;
             case Stage.RESTART:
                 stage = Stage.NONE;
-
-                timer = Time.realtimeSinceStartup;
                 
                 counter_clicks = 0;
 
@@ -356,18 +354,5 @@ public class QuadManager : MonoBehaviour {
         levelText.text = "Level: " + level.ToString();
     }
 
-    IEnumerator PlayVideo()
-    {
-        video.Prepare();
-        WaitForSeconds waitForSeconds = new WaitForSeconds(1);
-        while (!video.isPrepared)
-        {
-            yield return waitForSeconds;
-            break;
-        }
-        rawImage.texture = video.texture;
-        video.Play();
-        //VideoSource.clip = video_audio;
-        VideoSource.Play();
-    }
+
 }
