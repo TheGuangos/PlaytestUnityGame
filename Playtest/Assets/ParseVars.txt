@@ -5,3 +5,26 @@ PlayTesting - Variables Parsing
 High Score_ 0
 Total time playing:  3.90
 ----Logout date:  12/24/2018 2:35:10 AM----
+----Login date:  12/24/2018 2:38:13 AM----
+High Score_ 10
+Total time playing:  32.41
+----Logout date:  12/24/2018 2:38:43 AM----
+----Login date:  12/24/2018 2:39:45 AM----
+High Score_ 0
+Total time playing:  3.13
+----Logout date:  12/24/2018 2:39:46 AM----
+----Login date:  12/24/2018 2:39:55 AM----
+Total time playing:  3.01
+----Logout date:  12/24/2018 2:39:56 AM----
+----Login date:  12/24/2018 2:40:23 AM----
+Total time playing:  3.28
+----Logout date:  12/24/2018 2:40:24 AM----
+----Login date:  12/24/2018 2:46:27 AM----
+
+High Score_ 0Total time playing:  3.02
+----Logout date:  12/24/2018 2:46:29 AM----
+----Login date:  12/24/2018 2:48:20 AM----
+
+High Score_ 0
+Total time playing:  3.79
+----Logout date:  12/24/2018 2:48:22 AM----

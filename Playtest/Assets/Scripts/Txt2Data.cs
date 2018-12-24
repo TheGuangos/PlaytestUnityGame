@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
 
 public class Txt2Data : MonoBehaviour {
 
@@ -32,9 +33,9 @@ public class Txt2Data : MonoBehaviour {
         QuadManager cs = quadm.GetComponent<QuadManager>();
 
         string path = Application.dataPath + "/ParseVars.txt";
-        high_score = "High Score_ " + cs.highscore + "\n";
-        total_time_playing = "Total time playing:  " + Time.realtimeSinceStartup.ToString("F2") + "\n";
-        logout = "----Logout date:  " + System.DateTime.Now + "----\n";
+        high_score = Environment.NewLine + "High Score_ " + cs.highscore;
+        total_time_playing = Environment.NewLine + "Total time playing:  " + Time.realtimeSinceStartup.ToString("F2") + Environment.NewLine;
+        logout = "----Logout date:  " + System.DateTime.Now + "----" + Environment.NewLine;
         File.AppendAllText(path, high_score);
         File.AppendAllText(path, total_time_playing);
         File.AppendAllText(path, logout);
@@ -46,11 +47,11 @@ public class Txt2Data : MonoBehaviour {
         //Create File 
         if (!File.Exists(path))
         {
-            File.WriteAllText(path, "PlayTesting - Variables Parsing \n\n");
+            File.WriteAllText(path, "PlayTesting - Variables Parsing" + Environment.NewLine + Environment.NewLine);
         }
 
         //Content of the file
-        login = "----Login date:  " + System.DateTime.Now + "----\n";
+        login = "----Login date:  " + System.DateTime.Now + "----" + Environment.NewLine;
 
         //Add some to text to it
         File.AppendAllText(path, login);
