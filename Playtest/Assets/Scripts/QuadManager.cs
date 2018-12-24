@@ -48,6 +48,8 @@ public class QuadManager : MonoBehaviour {
     bool blinking = false;
     int level = 1;
 
+    int rounds = 0;
+
     int lifes = 3;
 
     public Text counterText;
@@ -100,6 +102,8 @@ public class QuadManager : MonoBehaviour {
                     press_space_text.SetActive(false);
                     levelText.enabled = true;
                     times_played++;
+
+                    rounds++;
 
                     if (times_played == 3 || times_played == 5)
                     {

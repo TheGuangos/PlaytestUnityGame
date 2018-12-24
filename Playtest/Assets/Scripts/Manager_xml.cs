@@ -6,19 +6,19 @@ using System.Xml;
 public class Manager_xml : MonoBehaviour
 {
     public GameObject txtScene;
-    public GameObject txtOption1;
-    public GameObject txtOption2;
-    public GameObject txtOption3;
-    public GameObject txtOption4;
+    //public GameObject txtOption1;
+    //public GameObject txtOption2;
+    //public GameObject txtOption3;
+    //public GameObject txtOption4;
     public GameObject counterClicks;
 
-    GameObject[] textOptions;
+    //GameObject[] textOptions;
 
     private static Dictionary<string, List<string>> optionsByScenes;
 
     void Start ()
     {
-        textOptions = new GameObject[] { txtOption1, txtOption2, txtOption3, txtOption4 };
+        //textOptions = new GameObject[] { txtOption1, txtOption2, txtOption3, txtOption4 };
 
         LoadSceneData();
         PopulateText();
@@ -53,10 +53,10 @@ public class Manager_xml : MonoBehaviour
         {
             txtScene.GetComponent<Text>().text = optionsByScene.Key;
 
-            for (int i = 0; i<textOptions.Length; i++)
-            {
-                textOptions[i].GetComponent<Text>().text = optionsByScene.Value[i];
-            }
+            //for (int i = 0; i<textOptions.Length; i++)
+            //{
+            //    textOptions[i].GetComponent<Text>().text = optionsByScene.Value[i];
+            //}
         }
     }
 
