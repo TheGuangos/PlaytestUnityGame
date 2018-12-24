@@ -28,13 +28,14 @@ public class Txt2Data : MonoBehaviour {
 
     private void OnApplicationQuit()
     {
-        QuadManager quad_manager = GetComponent<QuadManager>();
+        GameObject quadm = GameObject.Find("Quads");
+        QuadManager cs = quadm.GetComponent<QuadManager>();
 
         string path = Application.dataPath + "/ParseVars.txt";
-        //high_score = "High Score_ " + quad_manager.highscore + "\n";
+        high_score = "High Score_ " + cs.highscore + "\n";
         total_time_playing = "Total time playing:  " + Time.realtimeSinceStartup.ToString("F2") + "\n";
         logout = "----Logout date:  " + System.DateTime.Now + "----\n";
-        //File.AppendAllText(path, high_score);
+        File.AppendAllText(path, high_score);
         File.AppendAllText(path, total_time_playing);
         File.AppendAllText(path, logout);
     }
