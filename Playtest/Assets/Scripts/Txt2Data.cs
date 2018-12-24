@@ -34,6 +34,7 @@ public class Txt2Data : MonoBehaviour {
         QuadManager cs = quadm.GetComponent<QuadManager>();
 
         string path = Application.dataPath + "/ParseVars.txt";
+
         high_score = Environment.NewLine + "High Score: " + cs.highscore;
         for(int i = 0; i < cs.round.Count; ++i)
         {
@@ -54,6 +55,7 @@ public class Txt2Data : MonoBehaviour {
         }
         
         logout = "----Logout date:  " + System.DateTime.Now + "----" + Environment.NewLine;
+        File.AppendAllText(path, number_games);
         File.AppendAllText(path, high_score);
         File.AppendAllText(path, rounds);
         File.AppendAllText(path, total_time_playing);
@@ -66,11 +68,11 @@ public class Txt2Data : MonoBehaviour {
         //Create File 
         if (!File.Exists(path))
         {
-            File.WriteAllText(path, "PlayTesting - Variables Parsing" + Environment.NewLine + Environment.NewLine);
+            File.WriteAllText(path, "PlayTesting - Variables Parsing" + Environment.NewLine + "Player:  <Set number>" + Environment.NewLine + "Name:	<Set name>" + Environment.NewLine + "Age:	<Set age>" + Environment.NewLine + "Gender:	<Set Gender>" + Environment.NewLine + "Experience:	< Low / Medium / High >" + Environment.NewLine);
         }
 
         //Content of the file
-        login = "----Login date:  " + System.DateTime.Now + "----" + Environment.NewLine;
+        login = Environment.NewLine + "----Login date:  " + System.DateTime.Now + "----" + Environment.NewLine;
 
         //Add some to text to it
         File.AppendAllText(path, login);
