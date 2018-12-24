@@ -42,19 +42,19 @@ public class Txt2Data : MonoBehaviour {
             for(int j = 0; j < cs.round[i].level.Count; ++j)
             {
                 rounds += Environment.NewLine + "Level: " + j;
-                rounds += Environment.NewLine + "Lifes lost: " + cs.round[i].level[j].lifes_lose;
-                rounds += Environment.NewLine + "Start time: " + cs.round[i].level[j].start_time;
-                rounds += Environment.NewLine + "Total time: " + cs.round[i].level[j].total_time;
+                rounds += Environment.NewLine + "Lifes lost:    " + cs.round[i].level[j].lifes_lose;
+                rounds += Environment.NewLine + "Start time:    " + cs.round[i].level[j].start_time;
+                rounds += Environment.NewLine + "Total time:    " + cs.round[i].level[j].total_time;
             }
 
             rounds += Environment.NewLine + "Max level: " + cs.round[i].level.Count;
             rounds += Environment.NewLine + "Score: " + cs.round[i].score;
             rounds += Environment.NewLine + "Lifes: " + cs.round[i].life;
-            rounds += Environment.NewLine + "Start time: " + cs.round[i].start_time;
-            rounds += Environment.NewLine + "Total time: " + cs.round[i].total_time;
+            rounds += Environment.NewLine + "Start time:    " + cs.round[i].start_time;
+            rounds += Environment.NewLine + "Total time:    " + cs.round[i].total_time;
         }
         
-        logout = "----Logout date:  " + System.DateTime.Now + "----" + Environment.NewLine;
+        logout = Environment.NewLine + "----Logout date:  " + System.DateTime.Now + "----" + Environment.NewLine;
         File.AppendAllText(path, number_games);
         File.AppendAllText(path, high_score);
         File.AppendAllText(path, rounds);
@@ -72,7 +72,7 @@ public class Txt2Data : MonoBehaviour {
         }
 
         //Content of the file
-        login = Environment.NewLine + "----Login date:  " + System.DateTime.Now + "----" + Environment.NewLine;
+        login = Environment.NewLine + "----Login date:  " + System.DateTime.Now + "----";
 
         //Add some to text to it
         File.AppendAllText(path, login);
