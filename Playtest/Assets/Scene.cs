@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class UI_Manager : MonoBehaviour {
-
-    uint score; 
+public class Scene : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,9 +12,9 @@ public class UI_Manager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //if ()
-        //{
-        //    score++; 
-        //}
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu");
+        }
 	}
 }
