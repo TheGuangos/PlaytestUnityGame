@@ -13,7 +13,7 @@ public class QuadManager : MonoBehaviour {
         PLAYER,
         RESTART
     }
-    struct Level
+    public struct Level
     {
         public int level;
         public float start_time;
@@ -21,7 +21,7 @@ public class QuadManager : MonoBehaviour {
         public int lifes_lose;
     }
 
-    struct Round
+    public struct Round
     {
         public List<Level> level;
         public float start_time;

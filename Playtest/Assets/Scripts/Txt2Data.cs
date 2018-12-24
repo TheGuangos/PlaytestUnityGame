@@ -35,10 +35,27 @@ public class Txt2Data : MonoBehaviour {
 
         string path = Application.dataPath + "/ParseVars.txt";
         high_score = Environment.NewLine + "High Score: " + cs.highscore;
-        //rounds = Environment.NewLine + "Num of rounds: " + cs.Get()
-        //total_time_playing = Environment.NewLine + "Total time playing:  " + Time.realtimeSinceStartup.ToString("F2") + Environment.NewLine;
+        for(int i = 0; i < cs.round.Count; ++i)
+        {
+            rounds += Environment.NewLine + "Num round: " + i;
+            for(int j = 0; j < cs.round[i].level.Count; ++j)
+            {
+                rounds += Environment.NewLine + "Level: " + j;
+                rounds += Environment.NewLine + "Lifes lost: " + cs.round[i].level[j].lifes_lose;
+                rounds += Environment.NewLine + "Start time: " + cs.round[i].level[j].start_time;
+                rounds += Environment.NewLine + "Total time: " + cs.round[i].level[j].total_time;
+            }
+
+            rounds += Environment.NewLine + "Max level: " + cs.round[i].level.Count;
+            rounds += Environment.NewLine + "Score: " + cs.round[i].score;
+            rounds += Environment.NewLine + "Lifes: " + cs.round[i].life;
+            rounds += Environment.NewLine + "Start time: " + cs.round[i].start_time;
+            rounds += Environment.NewLine + "Total time: " + cs.round[i].total_time;
+        }
+        
         logout = "----Logout date:  " + System.DateTime.Now + "----" + Environment.NewLine;
         File.AppendAllText(path, high_score);
+        File.AppendAllText(path, rounds);
         File.AppendAllText(path, total_time_playing);
         File.AppendAllText(path, logout);
     }
