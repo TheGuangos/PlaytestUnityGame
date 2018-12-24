@@ -10,3 +10,15 @@ Number of Games:    3
 High Score:   27
 Total time playing:   199.35
 ----Logout date:  12/24/2018 3:18:02 AM----
+
+----Login date:  12/24/2018 3:40:11 AM----
+Number of Games:    1
+High Score:   0
+Total time playing:   14.99
+----Logout date:  12/24/2018 3:40:25 AM----
+
+----Login date:  12/24/2018 3:40:27 AM----
+Number of Games:    0
+High Score:   0
+Total time playing:   5.68
+----Logout date:  12/24/2018 3:40:32 AM----

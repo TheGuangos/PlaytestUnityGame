@@ -9,6 +9,7 @@ public class Txt2Data : MonoBehaviour {
     string login;
     string logout;
     string score;
+    string rounds;
     string high_score;
     string total_time_playing;
     string time_playing_game;
@@ -36,6 +37,8 @@ public class Txt2Data : MonoBehaviour {
         number_games = "Number of Games:    " + cs.times_played + Environment.NewLine;
         high_score = "High Score:   " + cs.highscore + Environment.NewLine;
         total_time_playing = "Total time playing:   " + Time.realtimeSinceStartup.ToString("F2") + Environment.NewLine;
+        rounds = Environment.NewLine + "Num of rounds:      " + cs.rounds;
+
         logout = "----Logout date:  " + System.DateTime.Now + "----" + Environment.NewLine;
         File.AppendAllText(path, number_games);
         File.AppendAllText(path, high_score);
