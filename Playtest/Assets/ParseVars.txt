@@ -538,3 +538,16 @@ Login date: 12/24/2018 12:24:27 AM
 Counter value: 
 Login date: 12/24/2018 12:26:54 AM
 Counter value: 
+----Login date:  12/24/2018 1:14:10 AM----
+----Logout date:  12/24/2018 1:14:18 AM----
+----Login date:  12/24/2018 1:20:08 AM----
+----Logout date:  12/24/2018 1:20:21 AM----
+----Login date:  12/24/2018 1:21:36 AM----
+Total time playing:  5.305058
+----Logout date:  12/24/2018 1:21:40 AM----
+----Login date:  12/24/2018 1:24:09 AM----
+Total time playing:  3.40
+----Logout date:  12/24/2018 1:24:11 AM----
+----Login date:  12/24/2018 1:42:58 AM----
+Total time playing:  12.23
+----Logout date:  12/24/2018 1:43:09 AM----
