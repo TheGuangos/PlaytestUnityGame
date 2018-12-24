@@ -56,7 +56,8 @@ public class QuadManager : MonoBehaviour {
     public Text highscoreText;
     public Text levelText;
     public int counter_clicks = 0;
-    int highscore = 0;
+    public int highscore = 0;
+    
     public float interval_blink = 0.5F;
 
     public VideoPlayer video;
