@@ -48,7 +48,7 @@ public class QuadManager : MonoBehaviour {
     bool blinking = false;
     int level = 1;
 
-    int rounds = 0;
+    public int rounds = 0;
 
     int lifes = 3;
 

@@ -9,6 +9,7 @@ public class Txt2Data : MonoBehaviour {
     string login;
     string logout;
     string score;
+    string rounds;
     string high_score;
     string total_time_playing;
     string time_playing_game;
@@ -33,7 +34,8 @@ public class Txt2Data : MonoBehaviour {
         QuadManager cs = quadm.GetComponent<QuadManager>();
 
         string path = Application.dataPath + "/ParseVars.txt";
-        high_score = Environment.NewLine + "High Score_ " + cs.highscore;
+        high_score = Environment.NewLine + "High Score: " + cs.highscore;
+        rounds = Environment.NewLine + "Num of rounds: " + cs.rounds;
         total_time_playing = Environment.NewLine + "Total time playing:  " + Time.realtimeSinceStartup.ToString("F2") + Environment.NewLine;
         logout = "----Logout date:  " + System.DateTime.Now + "----" + Environment.NewLine;
         File.AppendAllText(path, high_score);
