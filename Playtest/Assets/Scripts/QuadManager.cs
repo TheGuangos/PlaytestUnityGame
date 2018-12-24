@@ -51,8 +51,10 @@ public class QuadManager : MonoBehaviour {
     int lifes = 3;
 
     public Text counterText;
+    public Text highscoreText;
     public Text levelText;
     public int counter_clicks = 0;
+    int highscore = 0;
     public float interval_blink = 0.5F;
 
     public VideoPlayer video;
@@ -372,6 +374,11 @@ public class QuadManager : MonoBehaviour {
     {
         counterText.text = "Score: " + counter_clicks.ToString();
         levelText.text = "Level: " + level.ToString();
+        if (highscore <= counter_clicks)
+        {
+            highscore = counter_clicks;
+            highscoreText.text = "High score: " + counter_clicks.ToString();
+        }
     }
 
 
