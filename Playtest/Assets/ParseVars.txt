@@ -43,3 +43,23 @@ High Score: 0
 
 Total time playing:  2.90
 ----Logout date:  12/24/2018 2:52:06 AM----
+----Login date:  12/24/2018 3:31:07 AM----
+
+High Score: 4
+Total time playing:  41.48
+----Logout date:  12/24/2018 3:31:47 AM----
+----Login date:  12/24/2018 3:32:28 AM----
+
+High Score: 6
+Total time playing:  46.56
+----Logout date:  12/24/2018 3:33:13 AM----
+----Login date:  12/24/2018 3:33:18 AM----
+
+High Score: 10
+Total time playing:  235.67
+----Logout date:  12/24/2018 3:37:12 AM----
+----Login date:  12/24/2018 3:37:59 AM----
+
+High Score: 3
+Total time playing:  855.45
+----Logout date:  12/24/2018 3:52:09 AM----

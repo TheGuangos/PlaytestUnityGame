@@ -35,8 +35,8 @@ public class Txt2Data : MonoBehaviour {
 
         string path = Application.dataPath + "/ParseVars.txt";
         high_score = Environment.NewLine + "High Score: " + cs.highscore;
-        rounds = Environment.NewLine + "Num of rounds: " + cs.rounds;
-        total_time_playing = Environment.NewLine + "Total time playing:  " + Time.realtimeSinceStartup.ToString("F2") + Environment.NewLine;
+        //rounds = Environment.NewLine + "Num of rounds: " + cs.Get()
+        //total_time_playing = Environment.NewLine + "Total time playing:  " + Time.realtimeSinceStartup.ToString("F2") + Environment.NewLine;
         logout = "----Logout date:  " + System.DateTime.Now + "----" + Environment.NewLine;
         File.AppendAllText(path, high_score);
         File.AppendAllText(path, total_time_playing);

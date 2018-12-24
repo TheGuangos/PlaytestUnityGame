@@ -13,6 +13,22 @@ public class QuadManager : MonoBehaviour {
         PLAYER,
         RESTART
     }
+    struct Level
+    {
+        public int level;
+        public float start_time;
+        public float total_time;
+        public int lifes_lose;
+    }
+
+    struct Round
+    {
+        public List<Level> level;
+        public float start_time;
+        public float total_time;
+        public int score;
+        public int life;
+    }
 
     public AudioClip Do;
     public AudioClip Mi;
@@ -41,21 +57,19 @@ public class QuadManager : MonoBehaviour {
     float perfect_timer = 0.0f;
 
     List<int> patron;
+    public List<Round> round;
+    
     public int times_played = 0;
     int iterator = 0;
     int iterator_player = 0;
     Stage stage = Stage.NONE;
     bool blinking = false;
-    int level = 1;
-
-    public int rounds = 0;
-
-    int lifes = 3;
 
     public Text counterText;
     public Text highscoreText;
     public Text levelText;
-    public int counter_clicks = 0;
+    Round ronda;
+    Level round_level;
     public int highscore = 0;
     public float interval_blink = 0.5F;
 
@@ -67,20 +81,23 @@ public class QuadManager : MonoBehaviour {
     void Start () {
 
         SetText();
-        counter_clicks = 0;
+
+        ronda.score = 0;
+        round_level.level = 1;
+        ronda.life = 3;
 
         press_space_text.SetActive(true);
         go_text.SetActive(false);
         perfect_text.SetActive(false);
         levelText.enabled = false;
 
-        lifes = 3;
-
         iterator = 0;
         iterator_player = 0;
         stage = Stage.NONE;
         go_wait = false;
         patron = new List<int>();
+        round = new List<Round>();
+        ronda.level = new List<Level>();
         patron.Add(Random.Range(0, 4));
 
         MusicSource.clip = Start_fx;
@@ -103,7 +120,7 @@ public class QuadManager : MonoBehaviour {
                     levelText.enabled = true;
                     times_played++;
 
-                    rounds++;
+                    ronda.start_time = Time.realtimeSinceStartup;
 
                     if (times_played == 3 || times_played == 5)
                     {
@@ -183,6 +200,8 @@ public class QuadManager : MonoBehaviour {
                     go_text.SetActive(false);
                     iterator_player = 0;
                     perfect_wait = true;
+
+                    round_level.start_time = Time.realtimeSinceStartup;
                 }
                 else if (!go_wait)
                 {
@@ -195,14 +214,15 @@ public class QuadManager : MonoBehaviour {
                             iterator_player++;
                             MusicSource.clip = Mi;
                             MusicSource.Play();
-                            counter_clicks++;
+                            ronda.score++;
                         }
                         else
                         {
                             //fail
                             MusicSource.clip = GameOver_fx;
                             MusicSource.Play();
-                            lifes--;
+                            ronda.life--;
+                            round_level.lifes_lose++;
                         }
                     }
                     else if (Input.GetKeyUp(KeyCode.UpArrow)) { red.SetVisible(); }
@@ -216,14 +236,15 @@ public class QuadManager : MonoBehaviour {
                             iterator_player++;
                             MusicSource.clip = Sol;
                             MusicSource.Play();
-                            counter_clicks++;
+                            ronda.score++;
                         }
                         else
                         {
                             //fail
                             MusicSource.clip = GameOver_fx;
                             MusicSource.Play();
-                            lifes--;
+                            ronda.life--;
+                            round_level.lifes_lose++;
                         }
                     }
                     else if (Input.GetKeyUp(KeyCode.RightArrow)) { green.SetVisible(); }
@@ -237,14 +258,15 @@ public class QuadManager : MonoBehaviour {
                             iterator_player++;
                             MusicSource.clip = Si;
                             MusicSource.Play();
-                            counter_clicks++;
+                            ronda.score++;
                         }
                         else
                         {
                             //fail
                             MusicSource.clip = GameOver_fx;
                             MusicSource.Play();
-                            lifes--;
+                            ronda.life--;
+                            round_level.lifes_lose++;
                         }
                     }
                     else if (Input.GetKeyUp(KeyCode.DownArrow)) { yellow.SetVisible(); }
@@ -258,14 +280,15 @@ public class QuadManager : MonoBehaviour {
                             iterator_player++;
                             MusicSource.clip = Do;
                             MusicSource.Play();
-                            counter_clicks++;
+                            ronda.score++;
                         }
                         else
                         {
                             //fail
                             MusicSource.clip = GameOver_fx;
                             MusicSource.Play();
-                            lifes--;
+                            ronda.life--;
+                            round_level.lifes_lose++;
                         }
                     }
                     else if (Input.GetKeyUp(KeyCode.LeftArrow)) { blue.SetVisible(); }
@@ -291,14 +314,19 @@ public class QuadManager : MonoBehaviour {
                             iterator = 0;
                             iterator_player = 0;
                             stage = Stage.ITERATION;
-                            level++;
-                            if(level>=5 && red.idle_time >= 0.05f)
+                            round_level.total_time = Time.realtimeSinceStartup - round_level.start_time;
+                            ronda.level.Add(round_level);
+
+                            round_level.level++;
+                            round_level.start_time = Time.realtimeSinceStartup;
+                            round_level.lifes_lose = 0;
+
+                            if(ronda.level.Count >= 5 && red.idle_time >= 0.05f)
                             {
                                 red.idle_time -= 0.05f;
                                 blue.idle_time -= 0.05f;
                                 green.idle_time -= 0.05f;
                                 yellow.idle_time -= 0.05f;
-                                print(red.idle_time);
                             }
 
                             patron.Add(Random.Range(0, 4));
@@ -310,15 +338,21 @@ public class QuadManager : MonoBehaviour {
                 break;
             case Stage.RESTART:
                 stage = Stage.NONE;
-                
-                counter_clicks = 0;
+
+                ronda.total_time = Time.realtimeSinceStartup - ronda.start_time;
+
+                round.Add(ronda);
+
+                ronda.score = 0;
+                ronda.life = 3;
+
+                round_level.level = 1;
+                round_level.lifes_lose = 0;
 
                 press_space_text.SetActive(true);
                 go_text.SetActive(false);
                 perfect_text.SetActive(false);
                 levelText.enabled = false;
-
-                lifes = 3;
                 
                 go_wait = false;
 
@@ -331,7 +365,7 @@ public class QuadManager : MonoBehaviour {
 
                 iterator = 0;
                 iterator_player = 0;
-                level = 0;
+
 
                 heart1.SetActive(true);
                 heart2.SetActive(true);
@@ -352,7 +386,7 @@ public class QuadManager : MonoBehaviour {
 
     private void SetLife()
     {
-        switch (lifes)
+        switch (ronda.life)
         {
             case 3:
                 break;
@@ -376,12 +410,12 @@ public class QuadManager : MonoBehaviour {
 
     void SetText()
     {
-        counterText.text = "Score: " + counter_clicks.ToString();
-        levelText.text = "Level: " + level.ToString();
-        if (highscore <= counter_clicks)
+        counterText.text = "Score: " + ronda.score.ToString();
+        levelText.text = "Level: " + round_level.level.ToString();
+        if (highscore <= ronda.score)
         {
-            highscore = counter_clicks;
-            highscoreText.text = "High score: " + counter_clicks.ToString();
+            highscore = ronda.score;
+            highscoreText.text = "High score: " + ronda.score.ToString();
         }
     }
 
