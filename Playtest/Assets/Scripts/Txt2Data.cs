@@ -24,14 +24,17 @@ public class Txt2Data : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //PAth of the file
-        QuadManager quad_manager = GetComponent<QuadManager>();
 	}
 
     private void OnApplicationQuit()
     {
+        QuadManager quad_manager = GetComponent<QuadManager>();
+
         string path = Application.dataPath + "/ParseVars.txt";
+        //high_score = "High Score_ " + quad_manager.highscore + "\n";
         total_time_playing = "Total time playing:  " + Time.realtimeSinceStartup.ToString("F2") + "\n";
         logout = "----Logout date:  " + System.DateTime.Now + "----\n";
+        //File.AppendAllText(path, high_score);
         File.AppendAllText(path, total_time_playing);
         File.AppendAllText(path, logout);
     }
