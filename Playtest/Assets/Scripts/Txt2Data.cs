@@ -39,6 +39,5 @@ public class Txt2Data : MonoBehaviour {
         login = "Login date: " + System.DateTime.Now + "\n";
         //Add some to text to it
         File.AppendAllText(path, login);
-        File.AppendAllText(path, counter_click);
     }
 }
