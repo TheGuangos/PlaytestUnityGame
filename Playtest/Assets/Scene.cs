@@ -14,7 +14,7 @@ public class Scene : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("Menu");
+            Application.Quit();
         }
 	}
 }
